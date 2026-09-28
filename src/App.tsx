@@ -206,12 +206,15 @@ export function App() {
   const totalCompletedLevels = Object.values(progress).filter((p) => p.completed).length;
   const totalScoreAllLevels = Object.values(progress).reduce((acc, curr) => acc + curr.score, 0);
 
-  // Background style
+  // Background style - compatible with GitHub Pages project paths
   const backgroundStyle = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.22)), url('/images/jungle_bg.jpg')`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.22)), url('${import.meta.env.BASE_URL}images/jungle_bg.jpg')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed' as const,
+    minHeight: '100vh',
+    backgroundColor: '#14532d',
   };
 
   return (
